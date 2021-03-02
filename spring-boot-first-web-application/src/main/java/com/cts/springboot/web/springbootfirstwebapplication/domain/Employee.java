@@ -1,25 +1,43 @@
 package com.cts.springboot.web.springbootfirstwebapplication.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity(name = "employee")
 public class Employee {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
+	@NotNull
 	private String employeeName;
+
+	@NotNull
 	private int employeeID;
-	private String training;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "training_id", referencedColumnName = "id")
+	private Training training;
 
 	public Employee() {
 	}
 
-	public Employee(String employeeName, int employeeID, String training) {
+	public Employee(String employeeName, int employeeID) {
 		this.employeeName = employeeName;
 		this.employeeID = employeeID;
+		
+	}
+	
+
+	public Training getTraining() {
+		return training;
+	}
+
+	public void setTraining(Training training) {
 		this.training = training;
 	}
 
@@ -47,12 +65,5 @@ public class Employee {
 		this.employeeID = employeeID;
 	}
 
-	public String getTraining() {
-		return training;
-	}
-
-	public void setTraining(String training) {
-		this.training = training;
-	}
-
+	
 }

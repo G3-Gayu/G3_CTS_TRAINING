@@ -1,18 +1,23 @@
 package com.cts.springboot.web.springbootfirstwebapplication.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+
+
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class HelloWordController {
 
 	//http://localhost:9080/login?name=Gayathri
-		@RequestMapping("/login")
-		//@ResponseBody
-		public String HelloMessage() {
-			
-			return "hello";
-		}
+		
+	public void sendNotification() {
+		User user = new User();
+		user.setName("Gayathri");
+		
+	}
+	
 	
 	
 	

@@ -1,18 +1,18 @@
 package com.cts.springboot.web.springbootfirstwebapplication.repo;
 
+import java.beans.JavaBean;
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.cts.springboot.web.springbootfirstwebapplication.domain.Employee;
 
-@Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+@JavaBean
+public interface CustomRepository {
 
-	@Query("from employee where id=:id")
-	public Optional<Employee> findOneById(@Param("id") Long id);
+	
 
 }

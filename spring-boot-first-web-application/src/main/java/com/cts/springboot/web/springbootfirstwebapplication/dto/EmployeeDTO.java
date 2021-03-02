@@ -4,7 +4,8 @@ public class EmployeeDTO {
 
 	private String employeeName;
 	private int employeeID;
-	private String training;
+	private TrainingDTO trainingDTO;
+	private Long id;
 
 	public String getEmployeeName() {
 		return employeeName;
@@ -22,12 +23,20 @@ public class EmployeeDTO {
 		this.employeeID = employeeID;
 	}
 
-	public String getTraining() {
-		return training;
+	public Long getId() {
+		return id;
 	}
 
-	public void setTraining(String training) {
-		this.training = training;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public TrainingDTO getTrainingDTO() {
+		return trainingDTO;
+	}
+
+	public void setTrainingDTO(TrainingDTO trainingDTO) {
+		this.trainingDTO = trainingDTO;
 	}
 
 }
